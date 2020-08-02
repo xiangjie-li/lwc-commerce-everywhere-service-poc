@@ -1,0 +1,72 @@
+<template>
+    <h1>Mapping Configuration</h1>
+
+    <button class="ui blue button" onclick={handleSave}>Save</button>
+    <button class="ui button" onclick={handleBack}>Back</button>
+    <br /><br />
+
+    <p>Basic Information</p>
+
+    <form class="ui form">
+        <div class="field">
+            <!-- <label>Routing Configuration Name</label> -->
+            <input
+                type="text"
+                name="config-name"
+                placeholder="Mapping Configuration Name"
+                onchange={handleConfigNameChange}
+            />
+        </div>
+    </form>
+    <br />
+
+    <form class="ui form">
+        <div class="field">
+            <!-- <label>Routing Configuration Name</label> -->
+            <input
+                type="text"
+                name="system-name"
+                placeholder="System Name"
+                onchange={handleNameChange}
+            />
+        </div>
+    </form>
+    <br />
+
+    <div>
+        <!-- <label for="mappingType">Mapping Type:  </label> -->
+        <select
+            name="mappingType"
+            id="mappingType"
+            onchange={handleMappingTypeChange}
+            class="ui fluid search selection dropdown"
+        >
+            <option value="" disabled selected>Select Mapping Type</option>
+            <option value="producer2CDM"
+                >From Producer System to Canonical Data Model</option
+            >
+            <option value="CDM2Consumer"
+                >From Canonical Data Model to Consumer System</option
+            > </select
+        ><br />
+    </div>
+
+    <p>Field Path Mapping</p>
+
+    <button class="ui primary basic button" onclick={handleNewMappingForm}>
+        ADD ONE MAPPING</button
+    ><br />
+
+    <!-- <template if:true={isMappingEcom2CDM}>
+        <pages-ecom-mapping onnavigate={handleNavigate}></pages-ecom-mapping>
+    </template>
+    <template if:true={isMappingCDM2Google}>
+        <pages-cdm2-google-mapping onnavigate={handleNavigate}></pages-cdm2-google-mapping>
+    </template> -->
+
+    <pages-mapping-config-form
+        mapping-forms={mappingForms}
+        path-mapping={pathMapping}
+        onpathchange={handlePathchange}
+    ></pages-mapping-config-form>
+</template>

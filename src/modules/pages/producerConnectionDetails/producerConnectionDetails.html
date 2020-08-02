@@ -1,0 +1,93 @@
+<template>
+    <div class="container">
+        <h1>Producer Configuration Details</h1>
+        <!-- <button onclick={handleClick}>See Details</button> -->
+        <div>
+            <p>Basic Information</p>
+            <template if:true={producerConfig}>
+                <table class="ui compact small blue table">
+                    <tbody>
+                        <tr>
+                            <td class="collapsing">
+                                User ID
+                            </td>
+                            <td>{producerConfig.userId}</td>
+                        </tr>
+                        <tr>
+                            <td class="collapsing">
+                                Connection Type
+                            </td>
+                            <td>{producerConfig.type}</td>
+                        </tr>
+                        <tr>
+                            <td class="collapsing">
+                                Producer Configuration Name
+                            </td>
+                            <td>{producerConfig.name}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </template>
+            <br />
+
+            <p>Configuration Information</p>
+            <template if:true={producerConfig}>
+                <table class="ui compact small blue table">
+                    <tbody>
+                        <tr>
+                            <td class="collapsing">
+                                URL
+                            </td>
+                            <td>{producerConfig.config.url}</td>
+                        </tr>
+                        <tr>
+                            <td class="collapsing">
+                                Token URL
+                            </td>
+                            <td>{producerConfig.config.tokenUrl}</td>
+                        </tr>
+                        <tr>
+                            <td class="collapsing">
+                                Authorize URL
+                            </td>
+                            <td>{producerConfig.config.authorizeUrl}</td>
+                        </tr>
+                        <tr>
+                            <td class="collapsing">
+                                Scope
+                            </td>
+                            <td>{producerConfig.config.scope}</td>
+                        </tr>
+                        <tr>
+                            <td class="collapsing">
+                                Client ID
+                            </td>
+                            <td>{producerConfig.config.client_id}</td>
+                        </tr>
+                        <tr>
+                            <td class="collapsing">
+                                Client Secret
+                            </td>
+                            <td>{producerConfig.config.clientSecret}</td>
+                        </tr>
+                        <tr>
+                            <td class="collapsing">
+                                API Key
+                            </td>
+                            <td>{producerConfig.config.APIKey}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </template>
+
+            <div>
+                <button class="ui button" onclick={handleBackClick}>
+                    Back
+                </button>
+                <button class="ui blue button" onclick={handleEditClick}>
+                    Edit
+                </button>
+            </div>
+        </div>
+    </div>
+</template>

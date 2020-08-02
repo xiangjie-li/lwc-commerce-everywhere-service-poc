@@ -1,0 +1,18 @@
+<template>
+    <template if:true={isStateList}>
+        <pages-mapping-list onnavigate={handleNavigate}></pages-mapping-list>
+    </template>
+    <template if:true={isStateDetails}>
+        <pages-mapping-details
+            name={name}
+            config-name={configName}
+            mapping-type={mappingType}
+            onnavigate={handleNavigate}
+        ></pages-mapping-details>
+    </template>
+    <template if:true={isStateConfig}>
+        <pages-mapping-config
+            onnavigate={handleNavigate}
+        ></pages-mapping-config>
+    </template>
+</template>

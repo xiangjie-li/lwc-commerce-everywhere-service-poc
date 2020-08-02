@@ -1,0 +1,79 @@
+<template>
+    <h1>Configured Mapping List</h1>
+    <!-- <a onclick={handleItemClick} class="mappingRecord">
+        <p class="title">Mapping 1</p>
+    </a> -->
+
+    <button class="ui primary basic button" onclick={handleNewClick}>
+        ADD MAPPING CONFIGURATION
+    </button>
+    <br />
+
+    <template if:true={producerMappingList}>
+        <table class="ui compact small blue table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Source</th>
+                    <th>Target</th>
+                    <th>User</th>
+                    <th>Information</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={producerMappingList} for:item="mapping">
+                    <tr key={mapping._id}>
+                        <td>{mapping.configName}</td>
+                        <td>{mapping.producerName}</td>
+                        <td>CDM</td>
+                        <td>{mapping.userId}</td>
+                        <td>
+                            <!-- <button producer-name={connection.name} onclick={handleItemClick}>Details</button> -->
+                            <pages-details-button
+                                name={mapping.producerName}
+                                config-name={mapping.configName}
+                                mapping-type="producer"
+                                onnavigate={handleNavigate}
+                            ></pages-details-button>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </template>
+    <br />
+
+    <template if:true={consumerMappingList}>
+        <table class="ui compact small blue table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Source</th>
+                    <th>Target</th>
+                    <th>User</th>
+                    <th>Information</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={consumerMappingList} for:item="mapping">
+                    <tr key={mapping._id}>
+                        <td>{mapping.configName}</td>
+                        <td>CDM</td>
+                        <td>{mapping.consumerName}</td>
+                        <td>{mapping.userId}</td>
+                        <td>
+                            <!-- <button producer-name={connection.name} onclick={handleItemClick}>Details</button> -->
+                            <pages-details-button
+                                name={mapping.consumerName}
+                                config-name={mapping.configName}
+                                mapping-type="consumer"
+                                onnavigate={handleNavigate}
+                            ></pages-details-button>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </template>
+    <br />
+</template>

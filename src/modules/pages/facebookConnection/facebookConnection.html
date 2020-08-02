@@ -1,0 +1,19 @@
+<template>
+    <div class="container">
+        <div>
+            <div>
+                <label for="catalogId">Catalog ID</label><br />
+                <input
+                    type="text"
+                    id="catalogId"
+                    name="catalogId"
+                    onchange={handleChange}
+                /><br />
+            </div>
+            <div>
+                <button onclick={handleBackClick}>Back</button>
+                <button onclick={handleClick}>Save</button>
+            </div>
+        </div>
+    </div>
+</template>

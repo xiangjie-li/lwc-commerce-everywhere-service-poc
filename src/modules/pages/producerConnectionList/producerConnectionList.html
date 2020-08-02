@@ -1,0 +1,45 @@
+<template>
+    <h1>Configured Producer List</h1>
+    <!-- <lightning-button variant="brand" label="Brand" title="Primary action" onclick={handleNewClick} class="slds-m-left_x-small"></lightning-button> -->
+    <button class="ui primary basic button" onclick={handleNewClick}>
+        ADD CONNECTION CONFIGURATION
+    </button>
+    <br />
+    <!-- <a onclick={handleItemClick} class="producerRecord">
+        <div>
+            <p class="title">Ecom</p>
+        </div>
+    </a> -->
+
+    <template if:true={producerConnectionList}>
+        <table class="ui compact small blue table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>UserName</th>
+                    <th>Information</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template
+                    for:each={producerConnectionList}
+                    for:item="connection"
+                >
+                    <tr key={connection._id}>
+                        <td>{connection.name}</td>
+                        <td>{connection.type}</td>
+                        <td>{connection.userId}</td>
+                        <td>
+                            <!-- <button producer-name={connection.name} onclick={handleItemClick}>Details</button> -->
+                            <pages-details-button
+                                name={connection.name}
+                                onnavigate={handleNavigate}
+                            ></pages-details-button>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </template>
+</template>

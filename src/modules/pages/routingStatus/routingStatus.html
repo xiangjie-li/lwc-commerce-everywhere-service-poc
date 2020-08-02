@@ -1,0 +1,14 @@
+<template>
+    <template if:true={isWaiting}>
+        <div>Waiting</div>
+    </template>
+    <template if:true={isRunning}>
+        <div>Running</div>
+    </template>
+    <template if:true={isSuccess}>
+        <div>Success</div>
+    </template>
+    <template if:true={isFailed}>
+        <div>Failed</div>
+    </template>
+</template>

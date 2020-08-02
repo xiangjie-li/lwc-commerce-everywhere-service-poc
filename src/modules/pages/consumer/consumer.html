@@ -1,0 +1,18 @@
+<template>
+    <template if:true={isStateList}>
+        <pages-consumer-connection-list
+            onnavigate={handleNavigate}
+        ></pages-consumer-connection-list>
+    </template>
+    <template if:true={isStateDetails}>
+        <pages-consumer-connection-details
+            consumer-name={consumer}
+            onnavigate={handleNavigate}
+        ></pages-consumer-connection-details>
+    </template>
+    <template if:true={isStateConfig}>
+        <pages-consumer-connection-config
+            onnavigate={handleNavigate}
+        ></pages-consumer-connection-config>
+    </template>
+</template>

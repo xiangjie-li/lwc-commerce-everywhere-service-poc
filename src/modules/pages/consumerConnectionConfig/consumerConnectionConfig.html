@@ -1,0 +1,22 @@
+<template>
+    <h1>Consumer Configuration</h1>
+    <!-- <div class="chooser">
+        <label for="consumer">Choose Consumer:  </label>
+        <select name="consumer" id="consumer" onchange={handleChange}>
+            <option value="" disabled selected>Select Consumer</option>
+            <option value="google">Google Shopping</option>
+            <option value="facebook">Face Business Catalog</option>
+        </select></br>
+    </div>
+    </br>
+    <template if:true={isConsumerGoogle}>
+        <pages-google-connection onnavigate={handleNavigate}></pages-google-connection>
+    </template>
+    <template if:true={isConsumerFacebook}>
+        <pages-facebook-connection onnavigate={handleNavigate}></pages-facebook-connection>
+    </template> -->
+
+    <pages-oauth-consumer-connection
+        onnavigate={handleNavigate}
+    ></pages-oauth-consumer-connection>
+</template>

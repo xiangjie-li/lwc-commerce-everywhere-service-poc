@@ -1,0 +1,24 @@
+<template>
+    <div class="container">
+        <template for:each={CDMFields} for:item="CDMField">
+            <div key={CDMField}>
+                <label for={CDMField}>{CDMField}: </label>
+                <select name={CDMField} id={CDMField}>
+                    <option value="" disabled selected
+                        >Select from Ecom Fields</option
+                    >
+                    <template for:each={ecomFields} for:item="ecomField">
+                        <option key={ecomField} value={ecomField}
+                            >{ecomField}</option
+                        >
+                    </template> </select
+                ><br />
+            </div>
+        </template>
+
+        <div>
+            <button onclick={handleBackClick}>Back</button>
+            <button onclick={handleClick}>Save</button>
+        </div>
+    </div>
+</template>

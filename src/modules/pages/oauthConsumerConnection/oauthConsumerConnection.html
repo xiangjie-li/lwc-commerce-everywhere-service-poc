@@ -1,0 +1,96 @@
+<template>
+    <div class="container">
+        <div>
+            <div class="ui form">
+                <div class="required field">
+                    <label for="name">Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        onchange={handleNameChange}
+                    /><br />
+                </div>
+                <div class="required field">
+                    <label for="url">API URL</label>
+                    <input
+                        type="text"
+                        id="url"
+                        name="url"
+                        onchange={handleUrlChange}
+                    />
+                </div>
+                <div class="required field">
+                    <label for="tokenUrl">Token URL</label>
+                    <input
+                        type="text"
+                        id="tokenUrl"
+                        name="tokenUrl"
+                        onchange={handleTokenUrlChange}
+                    />
+                </div>
+                <div>
+                    <label for="authorizeUrl">Authorize URL</label>
+                    <input
+                        type="text"
+                        id="authorizeUrl"
+                        name="authorizeUrl"
+                        onchange={handleAuthorizeUrlChange}
+                    />
+                </div>
+                <br />
+                <div>
+                    <label for="scope">Scope</label>
+                    <input
+                        type="text"
+                        id="scope"
+                        name="scope"
+                        onchange={handleScopeChange}
+                    />
+                </div>
+                <br />
+                <div class="required field">
+                    <label for="clientId">Client ID</label>
+                    <input
+                        type="text"
+                        id="clientId"
+                        name="clientId"
+                        onchange={handleClientIdChange}
+                    />
+                </div>
+                <div>
+                    <label for="clientSecret">Client Secret</label>
+                    <input
+                        type="text"
+                        id="clientSecret"
+                        name="clientSecret"
+                        onchange={handleClientSecretChange}
+                    />
+                </div>
+                <br />
+                <div>
+                    <label for="APIKey">API Key</label>
+                    <input
+                        type="text"
+                        id="APIKey"
+                        name="APIKey"
+                        onchange={handleAPIKeyChange}
+                    />
+                </div>
+            </div>
+            <br />
+
+            <div>
+                <button
+                    class="ui primary basic button"
+                    onclick={handleBackClick}
+                >
+                    Back
+                </button>
+                <button class="ui primary basic button" onclick={handleSave}>
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+</template>

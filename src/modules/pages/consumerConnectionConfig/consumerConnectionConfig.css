@@ -1,0 +1,9 @@
+h1 {
+    text-align: left;
+    text-decoration: var(--text-decoration);
+    color: var(--color-text-link);
+}
+
+p {
+    text-align: left;
+}

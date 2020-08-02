@@ -1,0 +1,16 @@
+<template>
+    <template if:true={isStateList}>
+        <pages-routing-list onnavigate={handleNavigate}></pages-routing-list>
+    </template>
+    <template if:true={isStateDetails}>
+        <pages-routing-details
+            config-name={configName}
+            onnavigate={handleNavigate}
+        ></pages-routing-details>
+    </template>
+    <template if:true={isStateConfig}>
+        <pages-routing-config
+            onnavigate={handleNavigate}
+        ></pages-routing-config>
+    </template>
+</template>

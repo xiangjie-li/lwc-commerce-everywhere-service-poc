@@ -1,0 +1,24 @@
+<template>
+    <div class="container">
+        <template for:each={googleFields} for:item="googleField">
+            <div key={googleField}>
+                <label for={googleField}>{googleField}: </label>
+                <select name={googleField} id={googleField}>
+                    <option value="" disabled selected
+                        >Select from CDM Fields</option
+                    >
+                    <template for:each={CDMFields} for:item="CDMField">
+                        <option key={CDMField} value={CDMField}
+                            >{CDMField}</option
+                        >
+                    </template> </select
+                ><br />
+            </div>
+        </template>
+
+        <div>
+            <button onclick={handleBackClick}>Back</button>
+            <button onclick={handleClick}>Save</button>
+        </div>
+    </div>
+</template>

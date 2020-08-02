@@ -1,0 +1,19 @@
+<template>
+    <div class="container">
+        <div>
+            <div>
+                <label for="merchantId">Merchant ID</label><br />
+                <input
+                    type="text"
+                    id="merchantId"
+                    name="merchantId"
+                    onchange={handleChange}
+                /><br />
+            </div>
+            <div>
+                <button onclick={handleBackClick}>Back</button>
+                <button onclick={handleClick}>Save</button>
+            </div>
+        </div>
+    </div>
+</template>

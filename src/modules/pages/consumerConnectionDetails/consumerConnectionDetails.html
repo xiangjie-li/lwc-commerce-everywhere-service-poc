@@ -1,0 +1,89 @@
+<template>
+    <div class="container">
+        <h1>Consumer Details</h1>
+
+        <p>Basic Information</p>
+        <template if:true={consumerConfig}>
+            <table class="ui compact small blue table">
+                <tbody>
+                    <tr>
+                        <td class="collapsing">
+                            User ID
+                        </td>
+                        <td>{consumerConfig.userId}</td>
+                    </tr>
+                    <tr>
+                        <td class="collapsing">
+                            Connection Type
+                        </td>
+                        <td>{consumerConfig.type}</td>
+                    </tr>
+                    <tr>
+                        <td class="collapsing">
+                            Consumer Configuration Name
+                        </td>
+                        <td>{consumerConfig.name}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </template>
+        <br />
+
+        <p>Configuration Information</p>
+        <template if:true={consumerConfig}>
+            <table class="ui compact small blue table">
+                <tbody>
+                    <tr>
+                        <td class="collapsing">
+                            URL
+                        </td>
+                        <td>{consumerConfig.config.url}</td>
+                    </tr>
+                    <tr>
+                        <td class="collapsing">
+                            Token URL
+                        </td>
+                        <td>{consumerConfig.config.tokenUrl}</td>
+                    </tr>
+                    <tr>
+                        <td class="collapsing">
+                            Authorize URL
+                        </td>
+                        <td>{consumerConfig.config.authorizeUrl}</td>
+                    </tr>
+                    <tr>
+                        <td class="collapsing">
+                            Scope
+                        </td>
+                        <td>{consumerConfig.config.scope}</td>
+                    </tr>
+                    <tr>
+                        <td class="collapsing">
+                            Client ID
+                        </td>
+                        <td>{consumerConfig.config.clientId}</td>
+                    </tr>
+                    <tr>
+                        <td class="collapsing">
+                            Client Secret
+                        </td>
+                        <td>{consumerConfig.config.clientSecret}</td>
+                    </tr>
+                    <tr>
+                        <td class="collapsing">
+                            API Key
+                        </td>
+                        <td>{consumerConfig.config.APIKey}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </template>
+
+        <div>
+            <button class="ui button" onclick={handleBackClick}>Back</button>
+            <button class="ui blue button" onclick={handleEditClick}>
+                Edit
+            </button>
+        </div>
+    </div>
+</template>

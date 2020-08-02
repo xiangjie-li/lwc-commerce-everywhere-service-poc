@@ -1,0 +1,105 @@
+<template>
+    <h1>Mapping Details</h1>
+    <!-- <button type="button" class="btn btn-primary">Primary</button> -->
+    <div class="container">
+        <p>Basic Information</p>
+        <template if:true={mapping}>
+            <template if:true={isProducer}>
+                <table class="ui compact small blue table">
+                    <tbody>
+                        <tr>
+                            <td class="collapsing">
+                                Configuration Name
+                            </td>
+                            <td>{mapping.configName}</td>
+                        </tr>
+                        <tr>
+                            <td class="collapsing">
+                                User ID
+                            </td>
+                            <td>{mapping.userId}</td>
+                        </tr>
+                        <tr>
+                            <td class="collapsing">
+                                Source
+                            </td>
+                            <td>{mapping.producerName}</td>
+                        </tr>
+                        <tr>
+                            <td class="collapsing">
+                                Target
+                            </td>
+                            <td>Canonical Data Model</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </template>
+
+            <template if:true={isConsumer}>
+                <table class="ui compact small blue table">
+                    <tbody>
+                        <tr>
+                            <td class="collapsing">
+                                Configuration Name
+                            </td>
+                            <td>{mapping.configName}</td>
+                        </tr>
+                        <tr>
+                            <td class="collapsing">
+                                User ID
+                            </td>
+                            <td>{mapping.userId}</td>
+                        </tr>
+                        <tr>
+                            <td class="collapsing">
+                                Source
+                            </td>
+                            <td>Canonical Data Model</td>
+                        </tr>
+                        <tr>
+                            <td class="collapsing">
+                                Target
+                            </td>
+                            <td>{mapping.consumerName}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </template>
+        </template>
+        <br />
+
+        <p>Path Mapping</p>
+        <table class="ui compact small blue table">
+            <thead>
+                <tr>
+                    <th>TargetPath</th>
+                    <th>SourcePath</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>*Products.Product.Brand</td>
+                    <td>*data.brand</td>
+                </tr>
+
+                <tr>
+                    <td>*Products.Product.ProductSKU</td>
+                    <td>*data.id</td>
+                </tr>
+
+                <tr>
+                    <td>*Products.Product.Name</td>
+                    <td>*data.name</td>
+                </tr>
+
+                <tr>
+                    <td>*Products.Product.Description</td>
+                    <td>*data.page_description</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button onclick={handleBackClick}>Back</button>
+        <button onclick={handleEditClick}>Edit</button>
+    </div>
+</template>

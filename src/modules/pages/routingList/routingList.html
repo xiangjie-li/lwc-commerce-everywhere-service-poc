@@ -1,0 +1,85 @@
+<template>
+    <h1>Routing Record List</h1>
+    <!-- <a onclick={handleItemClick} class="routingRecord">
+        <p class="title">Routing 1</p>
+    </a> -->
+    <button class="ui primary basic button" onclick={handleNewClick}>
+        ADD CONNECTION CONFIGURATION
+    </button>
+    <br />
+
+    <table class="ui compact small blue table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>User Name</th>
+                <th>Schedule</th>
+                <th>Information</th>
+                <th>Action</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={routingList} for:item="routing">
+                <tr key={routing._id}>
+                    <td>{routing.configName}</td>
+                    <td>{routing.userId}</td>
+                    <td>{routing.config.schedule}</td>
+                    <td>
+                        <pages-details-button
+                            config-name={routing.configName}
+                            onnavigate={handleNavigate}
+                        ></pages-details-button>
+                    </td>
+                    <td>
+                        <!-- <button onclick={handleItemClick}>Activate</button> -->
+                        <pages-running-button
+                            config-name={routing.configName}
+                            onstatuschange={handleStatusChange}
+                        ></pages-running-button>
+                        <button onclick={handleItemClick}>Deactivate</button>
+                    </td>
+                    <!-- <td>Waiting</td> -->
+                    <td>
+                        <pages-routing-status
+                            status={routingStatus}
+                        ></pages-routing-status>
+                    </td>
+                </tr>
+            </template>
+            <!-- <tr>
+            <td>Ecom_to_google</td>
+            <td>Jack</td>
+            <td>On Demand</td>
+            <td><button onclick={handleItemClick}>Details</button></td>
+            <td>
+                <button onclick={handleItemClick}>Activate</button>
+                <button onclick={handleItemClick}>Deactivate</button>
+            </td>
+            <td>Success</td>
+          </tr>
+          <tr>
+            <td>Ecom_to_Facebook</td>
+            <td>Jack</td>
+            <td>On Demand</td>
+            <td><button onclick={handleItemClick}>Details</button></td>
+            <td>
+                <button onclick={handleItemClick}>Activate</button>
+                <button onclick={handleItemClick}>Deactivate</button>
+            </td>
+            <td>Success</td>
+          </tr>
+          <tr>
+            <td>Ecom_to_google&facebook</td>
+            <td>Jack</td>
+            <td>Every 5 hrs</td>
+            <td><button onclick={handleItemClick}>Details</button></td>
+            <td>
+                <button onclick={handleItemClick}>Activate</button>
+                <button onclick={handleItemClick}>Deactivate</button>
+            </td>
+            <td>Running</td>
+          </tr> -->
+        </tbody>
+    </table>
+</template>

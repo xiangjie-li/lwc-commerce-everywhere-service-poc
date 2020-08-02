@@ -1,0 +1,77 @@
+<template>
+    <h1>Routing Record Details</h1>
+    <div class="container">
+        <div>
+            <template if:true={routingConfig}>
+                <p>Basic User Information</p>
+                <table class="ui compact small blue table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>User Name</th>
+                            <th>Schedule</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{routingConfig.configName}</td>
+                            <td>{routingConfig.userId}</td>
+                            <td>{routingConfig.config.schedule}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+
+                <p>Producer Configuration Information</p>
+                <table class="ui compact small blue table">
+                    <thead>
+                        <tr>
+                            <th>Producer Connection</th>
+                            <th>Producer Mapper</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                {routingConfig.config.producer_connection.name}
+                            </td>
+                            <td>{routingConfig.config.producer_mapper.name}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+
+                <p>Consumer Configuration Information</p>
+                <table class="ui compact small blue table">
+                    <thead>
+                        <tr>
+                            <th>Consumer Connection</th>
+                            <th>Consumer Mapper</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template
+                            for:each={routingConfig.config.consumers}
+                            for:item="consumer"
+                        >
+                            <tr key={consumer.consumer_connection.name}>
+                                <td>{consumer.consumer_connection.name}</td>
+                                <td>{consumer.consumer_mapper.name}</td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+                <br />
+            </template>
+
+            <div>
+                <button class="ui button" onclick={handleBackClick}>
+                    Back
+                </button>
+                <button class="ui blue button" onclick={handleEditClick}>
+                    Edit
+                </button>
+            </div>
+        </div>
+    </div>
+</template>

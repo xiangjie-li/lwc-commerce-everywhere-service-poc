@@ -1,0 +1,18 @@
+<template>
+    <template if:true={isStateList}>
+        <pages-producer-connection-list
+            onnavigate={handleNavigate}
+        ></pages-producer-connection-list>
+    </template>
+    <template if:true={isStateDetails}>
+        <pages-producer-connection-details
+            producer-name={producer}
+            onnavigate={handleNavigate}
+        ></pages-producer-connection-details>
+    </template>
+    <template if:true={isStateConfig}>
+        <pages-producer-connection-config
+            onnavigate={handleNavigate}
+        ></pages-producer-connection-config>
+    </template>
+</template>

@@ -1,0 +1,53 @@
+<template>
+    <div class="container">
+        <template for:each={consumers} for:item="consumer">
+            <div key={consumer.id}>
+                <p class="smallp">Consumer</p>
+                <div>
+                    <!-- <label for="consumer">Choose Consumer:  </label> -->
+                    <select
+                        name="consumer"
+                        id={consumer.id}
+                        class="ui fluid search selection dropdown"
+                        onchange={handleConnectionChange}
+                    >
+                        <option value="" disabled selected
+                            >Select Consumer</option
+                        >
+                        <option value="google">Google Shopping</option>
+                        <option value="facebook"
+                            >Facebook Catalog</option
+                        > </select
+                    ><br />
+                </div>
+                <div>
+                    <!-- <label for="consumerMapper">Choose Consumer Mapper:  </label> -->
+                    <select
+                        name="consumerMapper"
+                        id={consumer.id}
+                        class="ui fluid search selection dropdown"
+                        onchange={handleMapperChange}
+                    >
+                        <option value="" disabled selected
+                            >Select Consumer Mapper</option
+                        >
+                        <option value="cdm2google_new"
+                            >CDM-to-GoogleShopping</option
+                        >
+                        <option value="cdm2facebook_new"
+                            >CDM-to-FacebookCatalog</option
+                        >
+                        <template
+                            for:each={consumerMappingList}
+                            for:item="mapping"
+                        >
+                            <option key={mapping._id} value={mapping.configName}
+                                >{mapping.configName}</option
+                            >
+                        </template> </select
+                    ><br />
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

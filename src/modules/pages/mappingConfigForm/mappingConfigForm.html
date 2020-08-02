@@ -1,0 +1,29 @@
+<template>
+    <div class="container">
+        <template for:each={mappingForms} for:item="mappingForm">
+            <div key={mappingForm.id}>
+                <div class="ui form">
+                    <div>
+                        <label for="targetPath">Target Path</label>
+                        <input
+                            type="text"
+                            id={mappingForm.id}
+                            name="targetPath"
+                            onchange={handleTargetChange}
+                        />
+                    </div>
+                    <div>
+                        <label for="sourcePath">Source Path</label>
+                        <input
+                            type="text"
+                            id={mappingForm.id}
+                            name="sourcePath"
+                            onchange={handleSourceChange}
+                        />
+                    </div>
+                </div>
+                <br />
+            </div>
+        </template>
+    </div>
+</template>

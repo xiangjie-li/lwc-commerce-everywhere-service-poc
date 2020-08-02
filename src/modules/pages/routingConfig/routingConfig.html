@@ -1,0 +1,94 @@
+<template>
+    <h1>Routing Configuration</h1>
+    <div class="container">
+        <div>
+            <p>Basic Information</p>
+            <form class="ui form">
+                <div class="field">
+                    <!-- <label>Routing Configuration Name</label> -->
+                    <input
+                        type="text"
+                        name="config-name"
+                        placeholder="Routing Configuration Name"
+                        onchange={handleConfigNameChange}
+                    />
+                </div>
+            </form>
+            <br />
+
+            <div>
+                <!-- <label for="schedule">Choose Schedule:  </label> -->
+                <select
+                    name="schedule"
+                    id="schedule"
+                    class="ui fluid search selection dropdown"
+                    onchange={handleScheduleChange}
+                >
+                    <option value="" disabled selected>Select Schedule</option>
+                    <option value="on_demand">On Demand</option>
+                    <option value="every_5_hrs">Every 5 hours</option> </select
+                ><br />
+            </div>
+
+            <p>Producer Configuration</p>
+            <div>
+                <!-- <label for="producer">Choose Producer:  </label> -->
+                <select
+                    name="producer"
+                    id="producer"
+                    class="ui fluid search selection dropdown"
+                    onchange={handleProducerConnectionChange}
+                >
+                    <option value="" disabled selected>Select Producer</option>
+                    <option value="ecom">Ecom</option>
+                    <option value="onecommerce">One Commerce</option> </select
+                ><br />
+            </div>
+            <div>
+                <!-- <label for="producerMapper">Choose Producer Mapper:  </label> -->
+                <select
+                    name="producerMapper"
+                    id="producerMapper"
+                    class="ui fluid search selection dropdown"
+                    onchange={handleProducerMapperChange}
+                >
+                    <option value="" disabled selected
+                        >Select Producer Mapper</option
+                    >
+                    <template
+                        for:each={producerMappingList}
+                        for:item="producerMapping"
+                    >
+                        <option
+                            key={producerMapping._id}
+                            value={producerMapping.configName}
+                            >{producerMapping.configName}</option
+                        >
+                    </template> </select
+                ><br />
+            </div>
+
+            <p>Consumer Configuration</p>
+            <button class="ui primary basic button" onclick={handleNewConsumer}>
+                ADD CONSUMER
+            </button>
+            <br /><br />
+
+            <pages-routing-config-consumer-form
+                consumer-mapping-list={consumerMappingList}
+                consumers={consumers}
+                onconnection={handleConnection}
+                onmapperchange={handleMapperchange}
+            ></pages-routing-config-consumer-form>
+
+            <div>
+                <button class="ui button" onclick={handleBackClick}>
+                    Back
+                </button>
+                <button class="ui blue button" onclick={handleSave}>
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+</template>
